@@ -286,7 +286,7 @@ client.on('channelDelete', async channel => {
                 type: channelGuardSettings.channelType,
                 parent: channelGuardSettings.parentId,
                 position: channelGuardSettings.position,
-                reason: 'Koruma altındaki kanal yeniden oluşturuldu'
+                reason: 'Kanal silindiği için yeniden oluşturdum'
             });
 
             console.log(`Kanal ${newChannel.name} yeniden oluşturuldu.`);
