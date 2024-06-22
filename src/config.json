@@ -1,0 +1,21 @@
+{
+    "bot": {
+        "client_id": "",
+        "token": "",
+        "presence": {
+            "status": "idle",
+            "text": "Guard Bot | Thendra Project's"
+        },
+        "mongoUrl": ""
+    },
+    "embeds": {
+        "colorDefault": "#ecc5c0",
+        "colorError": "#FF4949",
+        "colorSuccessfull": "#00FF2B",
+        "gitUrl": "https:/github.com/justthendra/discord.js-v14-slash-guard-bot"
+    },
+    "guild": {
+        "kayit-log": "",
+        "mod": ""
+    }
+}

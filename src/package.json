@@ -1,0 +1,31 @@
+{
+  "name": "discord.js-v14-slash-guard-bot",
+  "version": "1.0.0",
+  "description": "💥 Discord.js v14 Slash Komutlu Guard Bot",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justthendra/discord.js-v14-slash-guard-bot.git"
+  },
+  "keywords": [
+    "Guard-Bot",
+    "Discord",
+    "Bot",
+    "Discord-Bot"
+  ],
+  "author": "Thendra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justthendra/discord.js-v14-slash-guard-bot/issues"
+  },
+  "homepage": "https://github.com/justthendra/discord.js-v14-slash-guard-bot#readme",
+  "dependencies": {
+    "cute-logs": "^0.0.1",
+    "discord.js": "^14.15.3",
+    "mongoose": "^8.4.3",
+    "nodemon": "^3.1.4"
+  }
+}
