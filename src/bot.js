@@ -258,29 +258,34 @@ client.on('roleDelete', async role => {
 
 //*
 
-// Rol Koruma Sistemi
+// Kanal Koruma Sistemi
 
-const channelGuardSettings = require('./models/channelGuard');
+const channelGuard = require('./models/channelGuard');
 
 client.on('channelDelete', async channel => {
 
-    const newChannelData = await channelGuardSettings.findOneAndUpdate({
-        guildId: channel.guild.id,
-        channelId: channel.id,
-        channelName: channel.name,
-        channelType: channel.type,
-        parentId: channel.parentId,
-        position: channel.position,
-    });
+    const channelGuardSettings = await channelGuard.findOne({ guildId: channel.guild.id });
 
     if (channelGuardSettings && channelGuardSettings.isEnabled) {
 
         try {
+
+           await channelGuard.findOneAndUpdate({
+                guildId: channel.guild.id,
+                channelId: channel.id,
+                channelName: channel.name,
+                channelType: channel.type,
+                parentId: channel.parentId,
+                position: channel.position,
+            });
+
+            await channelGuardSettings.save();
         
-            const newChannel = await channel.guild.channels.create(newChannelData.channelName, {
-                type: newChannelData.channelType,
-                parent: newChannelData.parentId,
-                position: newChannelData.position,
+            const newChannel = await channel.guild.channels.create({
+                name: channelGuardSettings.channelName,
+                type: channelGuardSettings.channelType,
+                parent: channelGuardSettings.parentId,
+                position: channelGuardSettings.position,
                 reason: 'Koruma altındaki kanal yeniden oluşturuldu'
             });
 
@@ -299,7 +304,7 @@ client.on('channelDelete', async channel => {
             const logChannel = client.channels.cache.find(cha => cha.id === channell)
             logChannel.send({embeds: [embed]})
         } catch (err) {
-            consolo.log(`Kanal oluşturalamadı hata: ${err}`)
+            console.log(`Kanal oluşturalamadı hata: ${err}`)
         }
 
 }
